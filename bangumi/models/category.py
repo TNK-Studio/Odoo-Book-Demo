@@ -22,3 +22,8 @@ class Category(models.Model):
         'res.users', string='User', required=True,
         default=_get_current_uid
     )
+
+    bangumi_ids = fields.One2many(
+        'bangumi.bangumi', 'category_id',
+        string='Category Bangumi Set'
+    )
