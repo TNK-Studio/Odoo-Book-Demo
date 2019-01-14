@@ -12,3 +12,8 @@ class Bangumi(models.Model):
     total = fields.Integer(string='Total', required=True)
     already_seen = fields.Integer(string='Already seen', default=0)
     score = fields.Float(string='Score', required=True, default=0.0)
+
+    category_id = fields.Many2one(
+        'bangumi.category', string='Category', required=False
+    )
+
