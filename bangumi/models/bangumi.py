@@ -17,3 +17,8 @@ class Bangumi(models.Model):
         'bangumi.category', string='Category', required=False
     )
 
+    tag_ids = fields.Many2many(
+        'bangumi.tag', 'bangumi_bangumi_tag_rel',
+        'bangumi_id', 'tag_id',
+        string='Bangumi Tags'
+    )
