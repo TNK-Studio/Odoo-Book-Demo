@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_bangumi_bangumi,bangumi.bangumi,model_bangumi_bangumi,,1,0,0,0
+access_bangumi_bangumi,bangumi.bangumi,model_bangumi_bangumi,base.group_user,1,1,1,1
+access_bangumi_category,bangumi.category,model_bangumi_category,base.group_user,1,1,1,1
+access_bangumi_tag,bangumi.tag,model_bangumi_tag,base.group_user,1,1,1,1

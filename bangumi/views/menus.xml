@@ -1,0 +1,15 @@
+<odoo>
+    <act_window
+        id="act_bangumi_view"
+        name="Bangumi"
+        res_model="bangumi.bangumi"
+        view_mode="tree,kanban,form"
+    />
+
+    <menuitem
+        id="menu_bangumi_view"
+        name="Bangumi"
+        action="act_bangumi_view"
+        groups="base.group_user"
+    />
+</odoo>
