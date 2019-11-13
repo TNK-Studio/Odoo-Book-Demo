@@ -1,7 +1,7 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="bangumi.bangumi_list_view">
-            <field name="name">bangumi list</field>
+        <record model="ir.ui.view" id="view_bangumi_bangumi_list">
+            <field name="name">bangumi.list</field>
             <field name="model">bangumi.bangumi</field>
             <field name="arch" type="xml">
                 <tree>
@@ -18,14 +18,15 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="bangumi.bangumi_form_view">
-            <field name="name">bangumi form</field>
+        <record model="ir.ui.view" id="view_bangumi_bangumi_form">
+            <field name="name">bangumi.form</field>
             <field name="model">bangumi.bangumi</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="cover_image" widget="image"/>
                             <field name="category_id"/>
                             <field name="tag_ids" widget="many2many_tags"/>
                             <field name="score"/>
@@ -42,16 +43,49 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="bangumi.bangumi_search_view">
-        <field name="name">bangumi search</field>
-        <field name="model">bangumi.bangumi</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="name"/>
-                <field name="category_id" filter_domain="[('category_id.name', 'ilike', self)]"/>
-                <field name="tag_ids" filter_domain="[('tag_ids.name', 'ilike', self)]"/>
-            </search>
-        </field>
+        <record model="ir.ui.view" id="view_bangumi_bangumi_search">
+            <field name="name">bangumi.search</field>
+            <field name="model">bangumi.bangumi</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="category_id" filter_domain="[('category_id.name', 'ilike', self)]"/>
+                    <field name="tag_ids" filter_domain="[('tag_ids.name', 'ilike', self)]"/>
+                </search>
+            </field>
         </record>
+
+        <record model="ir.ui.view" id="view_bangumi_bangumi_kanban">
+            <field name="name">bangumi.kanban</field>
+            <field name="model">bangumi.bangumi</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="release_date"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt="Bangumi"
+                                         t-att-src="kanban_image('bangumi.bangumi', 'cover_image', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_title">
+                                        <field name="name" class="o_text_overflow"/>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <span class="oe_kanban_bottom_right">
+                                            <field name="release_date"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
     </data>
 </odoo>

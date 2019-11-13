@@ -4,7 +4,7 @@
         name="Bangumi"
         res_model="bangumi.bangumi"
         view_mode="tree,kanban,form"
-        view_id="bangumi.bangumi_list_view"
+        view_id="view_bangumi_bangumi_list"
     />
 
     <menuitem

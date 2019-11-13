@@ -34,6 +34,7 @@ class Bangumi(models.Model):
                 record.current = quarter_dt if quarter_dt < record.total else record.total
 
     name = fields.Char(string='Name', required=True)
+    cover_image = fields.Binary(string='Cover image', attachment=True)
     current = fields.Integer(string='Current', compute='_compute_current')
     total = fields.Integer(string='Total', required=True)
     already_seen = fields.Integer(string='Already seen', default=0)
