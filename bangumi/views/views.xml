@@ -41,5 +41,17 @@
                 </form>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="bangumi.bangumi_search_view">
+        <field name="name">bangumi search</field>
+        <field name="model">bangumi.bangumi</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="category_id" filter_domain="[('category_id.name', 'ilike', self)]"/>
+                <field name="tag_ids" filter_domain="[('tag_ids.name', 'ilike', self)]"/>
+            </search>
+        </field>
+        </record>
     </data>
 </odoo>
