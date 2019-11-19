@@ -1,11 +1,18 @@
 <odoo>
-    <act_window
-        id="act_bangumi_view"
-        name="Bangumi"
-        res_model="bangumi.bangumi"
-        view_mode="tree,kanban,form"
-        view_id="view_bangumi_bangumi_list"
-    />
+<!--    <act_window-->
+<!--        id="act_bangumi_view"-->
+<!--        name="Bangumi"-->
+<!--        res_model="bangumi.bangumi"-->
+<!--        view_mode="tree,kanban,form"-->
+<!--        view_id="view_bangumi_bangumi_list"-->
+<!--    />-->
+
+    <record id="act_bangumi_view" model="ir.actions.act_window">
+        <field name="name">Bangumi</field>
+        <field name="res_model">bangumi.bangumi</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="view_bangumi_bangumi_list"/>
+    </record>
 
     <menuitem
         id="menu_bangumi_view"
