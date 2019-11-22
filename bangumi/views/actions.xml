@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_server_like_bangumi" model="ir.actions.server">
+            <field name="name">Like</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_bangumi_bangumi" />
+            <field name="binding_model_id" ref="model_bangumi_bangumi" />
+            <field name="state">code</field>
+            <field name="code">records.action_like()</field>
+        </record>
+
+        <record id="action_server_unlike_bangumi" model="ir.actions.server">
+            <field name="name">Unlike</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_bangumi_bangumi" />
+            <field name="binding_model_id" ref="model_bangumi_bangumi" />
+            <field name="state">code</field>
+            <field name="code">records.action_unlike()</field>
+        </record>
+    </data>
+</odoo>

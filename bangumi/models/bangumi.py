@@ -11,6 +11,14 @@ class Bangumi(models.Model):
     _description = 'Bangumi'
 
     @api.multi
+    def action_like(self):
+        return self.write({'like': True})
+
+    @api.multi
+    def action_unlike(self):
+        return self.write({'like': False})
+
+    @api.multi
     @api.depends('release_date', 'update_cycle', 'total')
     def _compute_current(self):
         for record in self:
@@ -39,6 +47,7 @@ class Bangumi(models.Model):
     total = fields.Integer(string='Total', required=True)
     already_seen = fields.Integer(string='Already seen', default=0)
     score = fields.Float(string='Score', required=True, default=0.0)
+    like = fields.Boolean(string='Like', default=False)
 
     category_id = fields.Many2one(
         'bangumi.category', string='Category', required=False
