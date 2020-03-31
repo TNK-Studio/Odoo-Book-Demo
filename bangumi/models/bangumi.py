@@ -25,7 +25,7 @@ class Bangumi(models.Model):
             today = fields.Date.today()
             dt = today - record.release_date
             if dt.days < 0:
-                self.current = 0
+                record.current = 0
                 continue
 
             if record.update_cycle == 'weekly':
